@@ -1,6 +1,6 @@
 import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { Creatable } from 'react-select';  // Corrected import
+import CreatableReactSelect from "react-select/creatable"  // Corrected import
 
 function NewNotes() {
   return (
@@ -18,18 +18,17 @@ function NewNotes() {
             <Col>
               <Form.Group className="mb-3" controlId="ControlInputTags">
                 <Form.Label>Tags</Form.Label>
-                <Creatable isMulti placeholder="Select or create tags" />
+                <CreatableReactSelect isMulti placeholder="Select or create tags" />
               </Form.Group>
             </Col>
           </Row>
-          
-          <Form.Group controlId="markdown">
+         <Form.Group controlId="markdown">
             <Form.Label>Body</Form.Label>
             <Form.Control
               required
               as="textarea"
               rows={15}
-            />
+            /> 
           </Form.Group>
           
           <Stack direction="horizontal" gap={2} className="justify-content-end">
