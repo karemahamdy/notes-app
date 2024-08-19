@@ -3,13 +3,17 @@ import NewNotes from './NewNotes'; // Ensure the New component is correctly impo
 import './App.css';
 
 function App() {
+
+  const handleAddItems = (newItem) => {
+    console.log("Item added:", newItem);
+  }
   return (
     <div className='container my-4'>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<h1>home</h1>} />
         
-        <Route path="/new" element={<NewNotes />} />
+        <Route path="/new" element={<NewNotes  onAddItems={handleAddItems} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       </BrowserRouter>
