@@ -50,18 +50,15 @@ function NoteCard({ notes }) {
     <Row className="text-center">
       {notes.map((note) => (
         <Col key={note.id} md={4} className="mb-4">
-          {/* Wrap the BootstrapCard with Link to navigate to the note's detail page */}
-          <Link to={`/notes/${note.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <BootstrapCard>
-              <BootstrapCard.Body>
-                <BootstrapCard.Title>{note.title}</BootstrapCard.Title>
-                <BootstrapCard.Text>{note.textArea}</BootstrapCard.Text>
-                <div className="text-blue">
-                  <strong>Tags:</strong> {note.category.join(", ")}
-                </div>
-              </BootstrapCard.Body>
-            </BootstrapCard>
-          </Link>
+          <BootstrapCard>
+            <BootstrapCard.Body>
+              <BootstrapCard.Title>{note.title}</BootstrapCard.Title>
+              <BootstrapCard.Text>{note.textArea}</BootstrapCard.Text>
+              <div className="text-blue">
+                <strong>Tags:</strong> {note.category.join(", ")}
+              </div>
+            </BootstrapCard.Body>
+          </BootstrapCard>
         </Col>
       ))}
     </Row>

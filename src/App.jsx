@@ -8,8 +8,7 @@ import { useState } from "react";
 
 function App() {
   const [notes, setNotes] = useState([]); 
-
-  // Function to handle adding new notes
+  
   const handleAddItems = (newNote) => {
     setNotes([...notes, newNote]); 
   };

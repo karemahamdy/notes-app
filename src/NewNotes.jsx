@@ -44,7 +44,6 @@ function NewNotes({ onAddItems }) {
               <Form.Group className="mb-3" controlId="ControlInputTags">
                 <Form.Label>Tags</Form.Label>
                 <CreatableReactSelect
-                  required
                   isMulti
                   placeholder="Select or create tags"
                   value={category}
