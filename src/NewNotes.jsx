@@ -3,6 +3,8 @@ import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import CreatableReactSelect from "react-select/creatable";
 
+
+
 function NewNotes({ onAddItems }) {
   const [title, setTitle] = useState("");
   const [textArea, setTextArea] = useState("");
@@ -14,11 +16,11 @@ function NewNotes({ onAddItems }) {
     const newNote = { 
       title, 
       textArea, 
-      category: category.map(tag => tag.value), // Extract the values from the category
+      category: category.map(tag => tag.value), 
       id: Date.now() 
     };
-    onAddItems(newNote); // Add the new note
-    navigate("/"); // Redirect to the home page after adding the note
+    onAddItems(newNote); 
+    navigate("/"); 
   }
 
   return (
@@ -31,6 +33,7 @@ function NewNotes({ onAddItems }) {
               <Form.Group className="mb-3" controlId="ControlInputTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                  required
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
@@ -41,6 +44,7 @@ function NewNotes({ onAddItems }) {
               <Form.Group className="mb-3" controlId="ControlInputTags">
                 <Form.Label>Tags</Form.Label>
                 <CreatableReactSelect
+                  required
                   isMulti
                   placeholder="Select or create tags"
                   value={category}
