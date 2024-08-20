@@ -60,9 +60,11 @@ function NewNotes({ onAddItems }) {
           </Form.Group>
 
           <Stack direction="horizontal" gap={2} className="justify-content-end">
-            <Button type="submit" variant="primary">
+          <Link to="/">
+            <Button type="submit" variant="primary" >
               Save
             </Button>
+            </Link>
             <Link to="..">
               <Button type="button" variant="outline-secondary">
                 Cancel
