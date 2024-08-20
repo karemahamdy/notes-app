@@ -1,23 +1,24 @@
 import { useState } from 'react';
 import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CreatableReactSelect from "react-select/creatable";
 
 function NewNotes({ onAddItems }) {
   const [title, setTitle] = useState("");
   const [textArea, setTextArea] = useState("");
   const [category, setCategory] = useState([]);
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newItem = { 
+    const newNote = { 
       title, 
       textArea, 
       category: category.map(tag => tag.value), // Extract the values from the category
       id: Date.now() 
     };
-    onAddItems(newItem);
-    console.log(newItem);
+    onAddItems(newNote); // Add the new note
+    navigate("/"); // Redirect to the home page after adding the note
   }
 
   return (
@@ -60,16 +61,12 @@ function NewNotes({ onAddItems }) {
           </Form.Group>
 
           <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Link to="/">
-            <Button type="submit" variant="primary" >
+            <Button type="submit" variant="primary">
               Save
             </Button>
-            </Link>
-            <Link to="..">
-              <Button type="button" variant="outline-secondary">
-                Cancel
-              </Button>
-            </Link>
+            <Button type="button" variant="outline-secondary" onClick={() => navigate("/")}>
+              Cancel
+            </Button>
           </Stack>
         </Stack>
       </Form>
