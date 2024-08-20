@@ -1,7 +1,7 @@
  function NoteDetail () {
   return (
     <>
-    <h1>heloo</h1>
+    <h1>helo</h1>
     </>
   )
  }

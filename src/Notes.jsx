@@ -50,7 +50,8 @@ function NoteCard({ notes }) {
     <Row className="text-center">
       {notes.map((note) => (
         <Col key={note.id} md={4} className="mb-4">
-          <BootstrapCard>
+          <Link to={`/notes/${note.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <BootstrapCard >
             <BootstrapCard.Body>
               <BootstrapCard.Title>{note.title}</BootstrapCard.Title>
               <BootstrapCard.Text>{note.textArea}</BootstrapCard.Text>
@@ -59,6 +60,7 @@ function NoteCard({ notes }) {
               </div>
             </BootstrapCard.Body>
           </BootstrapCard>
+          </Link>
         </Col>
       ))}
     </Row>
